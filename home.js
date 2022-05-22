@@ -7,6 +7,8 @@ const months = ['January', 'February', 'March', 'April',
 'May', 'June', 'July', 'August', 'September', 'October',
 'November', 'December'];
 
+
+
 //Months are always the same
 (function populateMonths(){
     for(let i = 0; i < months.length; i++){
@@ -95,12 +97,19 @@ daySelect.onchange = function() {
 const button1 = document.getElementById("button1");
 
 button1.addEventListener("click", e => {
-    const API_BASE_URL = 'http://fortunecookieapi.com'
-        // alert(daySelect.value)
-        const fortune = document.getElementById('fortune'); 
-        axios.get(`http://private-anon-a4975c3fd5-fortunecookie.apiary-proxy.com/v1/fortunes/%7Bid%7D%7B?%7D`).then((res) => (fortune.innerText = JSON.stringify(res.data))).catch(err=> console.log(err))
-    // alert("submitted")
-})
+    // let quotes = ['hola','buenas tardes','water']
+    let quote = quotes[Math.floor(Math.random()*quotes.length)];
+    alert(quote)
+    })
+    
+
+   
+
+    // const API_BASE_URL = 'http://fortunecookieapi.com'
+    //     // alert(daySelect.value)
+    //     const fortune = document.getElementById('fortune'); 
+    //     axios.get(`http://private-anon-a4975c3fd5-fortunecookie.apiary-proxy.com/v1/fortunes/%7Bid%7D%7B?%7D`).then((res) => (fortune.innerText = JSON.stringify(res.data))).catch(err=> console.log(err))
+    // // alert("submitted")
 
 //grab the dom elements, package those up in the post request that you're going to send to the backend. 
 //clear button// 
