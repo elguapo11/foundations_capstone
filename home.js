@@ -107,11 +107,13 @@ button1.addEventListener("click", e => {
                     'You can be a master manifester this month. The Taurus sun shines brightly in the sector of your chart that governs spirituality. Use it',
                     'You will be surrounded by people telling you something you are not. Listen to yourself']
     let quote = quotes[Math.floor(Math.random()*quotes.length)];
+    const dayInput = document.getElementById("day").value 
+    let newAlert = daySelect.value[Math.floor(Math.random()*daySelect.value.length)]
+    console.log(newAlert)
     alert(quote)
     })
     
-    let newAlert = daySelect.value[Math.floor(Math.random()*daySelect.value.length)]
-    console.log(newAlert)
+    
 
     // const API_BASE_URL = 'http://fortunecookieapi.com'
     //     // alert(daySelect.value)
