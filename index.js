@@ -4,11 +4,6 @@ const cors = require('cors')
 
 
 
-
-
-
-
-
 const app = express(); 
 app.use(express.json());
 app.use(cors())
@@ -18,9 +13,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'home.html'))
     })
 
-app.get('/', async (req, res) => {
-    let dayGet = req.query.daySelect.value
-    let monthGet = req.query.monthSelect.value
+app.get('/test', (req, res) => {
+    
+    let newDay = req.daySelect.value
+    let newMonth = req.monthSelect.value
+    
+
     let quotes = [  'If you feel hemmed in by fears or uncertainties in your love life, the day ahead will give you the courage to challenge your obstacles',
                      'This is a good time to clean out your closet and throw away things you no longer need. Be ruthless.',
                     'Time to start making some major career moves when the sun enters Gemini', 
@@ -30,12 +28,9 @@ app.get('/', async (req, res) => {
                     'Other people might have a hard time navigating through the day, thanks to the intensity and corruption thats likely to surface. You have nothing to worry about',
                     'You can be a master manifester this month. The Taurus sun shines brightly in the sector of your chart that governs spirituality. Use it',
                     'You will be surrounded by people telling you something you are not. Listen to yourself']
-    let quote = quotes[Math.floor(Math.random()*quotes.length)];
-    const dayInput = document.getElementById("day").value 
-      
-    console.log ('hit endpoint')
-    const response = await axios.get('/').then((res) => console.log(res.data)); 
-    res.status(200).send(response.data)
+    let quote = req.quotes[Math.floor(Math.random()*quotes.length)];
+   
+    res.send(`You have selected ${newMonth} ${newDay}. This is your reading:`)
     
 });  
 
