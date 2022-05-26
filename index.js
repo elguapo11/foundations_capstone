@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
     })
 
 app.get('/', async (req, res) => {
-    let dayGet = daySelect.value
-    let monthGet = monthSelect.value
+    let dayGet = req.query.daySelect.value
+    let monthGet = req.query.monthSelect.value
     let quotes = [  'If you feel hemmed in by fears or uncertainties in your love life, the day ahead will give you the courage to challenge your obstacles',
                      'This is a good time to clean out your closet and throw away things you no longer need. Be ruthless.',
                     'Time to start making some major career moves when the sun enters Gemini', 
@@ -34,7 +34,7 @@ app.get('/', async (req, res) => {
     const dayInput = document.getElementById("day").value 
       
     console.log ('hit endpoint')
-    const response = await axios.get('submit').then((res) => console.log(res.data)); 
+    const response = await axios.get('/').then((res) => console.log(res.data)); 
     res.status(200).send(response.data)
     
 });  

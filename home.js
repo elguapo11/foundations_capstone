@@ -99,16 +99,16 @@ daySelect.onchange = function() {
 const button1 = document.getElementById("button1");
 
 button1.addEventListener("click", e => {
-    let quotes = [  'If you feel hemmed in by fears or uncertainties in your love life, the day ahead will give you the courage to challenge your obstacles',
-                    'This is a good time to clean out your closet and throw away things you no longer need. Be ruthless.',
-                    'Time to start making some major career moves when the sun enters Gemini', 
-                    'If you’re in love, let everyone know it when Mercury in Gemini sextiles Jupiter in Aries',
-                    'You’ve always prided yourself on your moral code, but you could be wrong about something important', 
-                    'Don’t be afraid to get off your high horse in order to grow',
-                    'Other people might have a hard time navigating through the day, thanks to the intensity and corruption thats likely to surface. You have nothing to worry about',
-                    'You can be a master manifester this month. The Taurus sun shines brightly in the sector of your chart that governs spirituality. Use it',
-                    'You will be surrounded by people telling you something you are not. Listen to yourself']
-    let quote = quotes[Math.floor(Math.random()*quotes.length)];
+    // let quotes = [  'If you feel hemmed in by fears or uncertainties in your love life, the day ahead will give you the courage to challenge your obstacles',
+    //                 'This is a good time to clean out your closet and throw away things you no longer need. Be ruthless.',
+    //                 'Time to start making some major career moves when the sun enters Gemini', 
+    //                 'If you’re in love, let everyone know it when Mercury in Gemini sextiles Jupiter in Aries',
+    //                 'You’ve always prided yourself on your moral code, but you could be wrong about something important', 
+    //                 'Don’t be afraid to get off your high horse in order to grow',
+    //                 'Other people might have a hard time navigating through the day, thanks to the intensity and corruption thats likely to surface. You have nothing to worry about',
+    //                 'You can be a master manifester this month. The Taurus sun shines brightly in the sector of your chart that governs spirituality. Use it',
+    //                 'You will be surrounded by people telling you something you are not. Listen to yourself']
+    // let quote = quotes[Math.floor(Math.random()*quotes.length)];
     let response = await fetch (quote + params); 
     
     alert(await response.text())
