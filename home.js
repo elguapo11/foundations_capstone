@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 //Create references to the dropdown's
 const yearSelect = document.getElementById("year");
 const monthSelect = document.getElementById("month");
@@ -107,31 +109,17 @@ button1.addEventListener("click", e => {
                     'You can be a master manifester this month. The Taurus sun shines brightly in the sector of your chart that governs spirituality. Use it',
                     'You will be surrounded by people telling you something you are not. Listen to yourself']
     let quote = quotes[Math.floor(Math.random()*quotes.length)];
-    const dayInput = document.getElementById("day").value 
-    let newAlert = daySelect.value[Math.floor(Math.random()*daySelect.value.length)]
-    console.log(newAlert)
-    alert(quote)
+    let response = await fetch (quote + params); 
+    
+    alert(await response.text())
     })
     
     
 
-    // const API_BASE_URL = 'http://fortunecookieapi.com'
-    //     // alert(daySelect.value)
-    //     const fortune = document.getElementById('fortune'); 
-    //     axios.get(`http://private-anon-a4975c3fd5-fortunecookie.apiary-proxy.com/v1/fortunes/%7Bid%7D%7B?%7D`).then((res) => (fortune.innerText = JSON.stringify(res.data))).catch(err=> console.log(err))
-    // // alert("submitted")
 
-//grab the dom elements, package those up in the post request that you're going to send to the backend. 
-//clear button// 
-
+//clear button
 const button2 = document.getElementById("button2");
     button2.addEventListener("click", e => {
         alert("cleared")
     }
     )
-
-// const API_BASE_URL = 'http://localhost:4040'
-
-
-// const pokemon = document.getElementById('pokemon'); 
-// const response = axios.get(`${API_BASE_URL}/api/test`).then((res) => (pokemon.innerText = JSON.stringify(res.data.base_experience,null, 2))); 
