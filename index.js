@@ -33,9 +33,11 @@ app.post('/test', (req, res) => {
     
 });  
 
-app.get('https://zenquotes.io/api/quotes/', (req, res) => {
+app.get('/api/test', (req, res) => {
     res.status(200).send('success')
 })
+
+
 
 
 

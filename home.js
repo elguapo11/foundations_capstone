@@ -113,8 +113,8 @@ button1.addEventListener("click", async (event) => {
 const button2 = document.getElementById("button2");
     button2.addEventListener("click", e => {
 
-        axios.get("https://zenquotes.io/api/quotes/")
+        axios.get("api/test")
         
-        alert(response)
+        console.log(res.data)
     }
     )
