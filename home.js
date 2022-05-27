@@ -1,4 +1,4 @@
-const { response } = require("express");
+
 
 //Create references to the dropdown's
 const yearSelect = document.getElementById("year");
@@ -100,9 +100,9 @@ const button1 = document.getElementById("button1");
 
 button1.addEventListener("click", async (event) => {
    
-    let response = await fetch ('/test'); 
+    let response = await axios.post('http://localhost:4040/test' , {daySelect: daySelect.value, monthSelect: monthSelect.value} ); 
     
-    alert(await response)
+    alert(response.data)
     
 })
     
@@ -112,6 +112,9 @@ button1.addEventListener("click", async (event) => {
 //clear button
 const button2 = document.getElementById("button2");
     button2.addEventListener("click", e => {
-        alert("cleared")
+
+        axios.get("https://zenquotes.io/api/quotes/")
+        
+        alert(response)
     }
     )

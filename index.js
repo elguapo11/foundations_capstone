@@ -9,14 +9,11 @@ app.use(express.json());
 app.use(cors())
 
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'home.html'))
-    })
 
-app.get('/test', (req, res) => {
+app.post('/test', (req, res) => {
     
-    let newDay = req.daySelect.value
-    let newMonth = req.monthSelect.value
+    let newDay = req.body.daySelect
+    let newMonth = req.body.monthSelect
     
 
     let quotes = [  'If you feel hemmed in by fears or uncertainties in your love life, the day ahead will give you the courage to challenge your obstacles',
@@ -28,18 +25,18 @@ app.get('/test', (req, res) => {
                     'Other people might have a hard time navigating through the day, thanks to the intensity and corruption thats likely to surface. You have nothing to worry about',
                     'You can be a master manifester this month. The Taurus sun shines brightly in the sector of your chart that governs spirituality. Use it',
                     'You will be surrounded by people telling you something you are not. Listen to yourself']
-    let quote = req.quotes[Math.floor(Math.random()*quotes.length)];
+    let quote = quotes[Math.floor(Math.random()*quotes.length)];
    
-    res.send(`You have selected ${newMonth} ${newDay}. This is your reading:`)
+    res.send(`You have selected ${newMonth} ${newDay}. This is your reading: 
+    
+                ${quote}`)
     
 });  
 
-//
+app.get('https://zenquotes.io/api/quotes/', (req, res) => {
+    res.status(200).send('success')
+})
 
-app.get('/api/test/:banana', (req, res) => {
-    console.log('got param!', req.params)
-    res.sendStatus(200)
-});  
 
 
 app.listen(4040, () => console.log('server running on 4040'));
