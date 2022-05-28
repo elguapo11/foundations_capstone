@@ -5,6 +5,7 @@ const yearSelect = document.getElementById("year");
 const monthSelect = document.getElementById("month");
 const daySelect = document.getElementById("day");
 
+
 const months = ['January', 'February', 'March', 'April', 
 'May', 'June', 'July', 'August', 'September', 'October',
 'November', 'December'];
@@ -111,10 +112,11 @@ button1.addEventListener("click", async (event) => {
 
 //clear button
 const button2 = document.getElementById("button2");
-    button2.addEventListener("click", e => {
+    button2.addEventListener("click", async e => {
 
-        axios.get("api/test")
+        const res = await axios.get("http://localhost:4040/api/dailyquote")
+
         
-        console.log(res.data)
+        document.getElementById("button2").innerText = (res.data[0].q)
     }
     )

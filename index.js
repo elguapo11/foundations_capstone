@@ -1,6 +1,7 @@
 const { default: axios } = require('axios');
 const express = require('express')
-const cors = require('cors')
+const cors = require('cors');
+const { response } = require('express');
 
 
 
@@ -33,9 +34,12 @@ app.post('/test', (req, res) => {
     
 });  
 
-app.get('/api/test', (req, res) => {
-    res.status(200).send('success')
-})
+app.get('/api/dailyquote', (req, res) => {
+    
+    axios.get('https://zenquotes.io/api/today/').then (resp => {
+       
+    res.send(resp.data)
+})}); 
 
 
 
