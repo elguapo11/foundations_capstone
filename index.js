@@ -42,9 +42,6 @@ app.get('/api/dailyquote', (req, res) => {
 })}); 
 
 
-
-
-
 app.listen(4040, () => console.log('server running on 4040'));
 
 
