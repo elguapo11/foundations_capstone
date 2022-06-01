@@ -110,13 +110,12 @@ button1.addEventListener("click", async (event) => {
     
 
 
-//clear button
+//dailyquote button
 const button2 = document.getElementById("button2");
     button2.addEventListener("click", async e => {
 
         const res = await axios.get("http://localhost:4040/api/dailyquote")
 
-        
         document.getElementById("button2").innerText = (res.data[0].q)
     }
     )
